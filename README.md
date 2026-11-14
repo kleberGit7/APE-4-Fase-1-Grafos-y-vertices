@@ -48,63 +48,88 @@ $E = \{e_1, e_2, e_3, e_4, e_5\}$
 ---
 
 ## 📊 Representación Visual del Grafo
-graph RedSocialGrupo4 {
-    layout=neato;
-    bgcolor="#FFFFFF";
-    pad="0.4";
-    
-    node [fontname="Helvetica, Arial, sans-serif"];
-    edge [color="#334155", penwidth=3.2];
+## 📊 Representación Visual del Grafo
 
-    // Título superior
-    titulo [shape=plaintext, label=<
-        <B><FONT POINT-SIZE="17" COLOR="#0F172A">Red Social Original G = (V, E) · Grupo 4 (6 Vértices, 5 Aristas)</FONT></B>
-    >, pos="5.0,6.3!"];
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#F8FAFC', 'lineColor': '#334155', 'fontFamily': 'Segoe UI, sans-serif'}}}%%
+flowchart LR
+    %% Columna 1: Sofía y Lucas (Vertical)
+    subgraph Col1[" "]
+        direction TB
+        U02(("<b>Sofía</b><br/>(U02)"))
+        G02(["Grado: 2"])
+        U03(("<b>Lucas</b><br/>(U03)"))
+        G03(["Grado: 2"])
+        
+        U02 ~~~ G02
+        U02 ---|"<b>e3</b>"| U03
+        U03 ~~~ G03
+    end
 
-    // 6 Nodos principales (Círculos)
-    node [shape=circle, style="filled", fontcolor="white", penwidth=3.5, fixedsize=true, width=1.35];
-    
-    U02 [label=<<B><FONT POINT-SIZE="12">Sofía</FONT></B><BR/><FONT POINT-SIZE="10" COLOR="#E2E8F0">(U02)</FONT>>, pos="1.5,5.1!", fillcolor="#0F766E", color="#14B8A6"];
-    U03 [label=<<B><FONT POINT-SIZE="12">Lucas</FONT></B><BR/><FONT POINT-SIZE="10" COLOR="#E2E8F0">(U03)</FONT>>, pos="1.5,2.1!", fillcolor="#0F766E", color="#14B8A6"];
-    U01 [label=<<B><FONT POINT-SIZE="12">Mateo</FONT></B><BR/><FONT POINT-SIZE="10" COLOR="#E2E8F0">(U01)</FONT>>, pos="4.0,3.6!", fillcolor="#1E3A8A", color="#3B82F6"];
-    U04 [label=<<B><FONT POINT-SIZE="12">Valeria</FONT></B><BR/><FONT POINT-SIZE="10" COLOR="#E2E8F0">(U04)</FONT>>, pos="6.5,3.6!", fillcolor="#0F766E", color="#14B8A6"];
-    U05 [label=<<B><FONT POINT-SIZE="12">Sebastián</FONT></B><BR/><FONT POINT-SIZE="10" COLOR="#E2E8F0">(U05)</FONT>>, pos="8.6,5.0!", fillcolor="#334155", color="#64748B"];
-    U06 [label=<<B><FONT POINT-SIZE="12">Camila</FONT></B><BR/><FONT POINT-SIZE="10" COLOR="#E2E8F0">(U06)</FONT>>, pos="8.6,1.9!", fillcolor="#991B1B", color="#EF4444"];
+    %% Etiqueta del Ciclo C3 en medio del triángulo
+    C3(["Ciclo C3<br/>(U01-U02-U03-U01)"])
 
-    // Placas de Grado debajo de cada nodo
-    node [shape=box, style="rounded,filled", fixedsize=false, width=0, height=0, margin="0.08,0.04", penwidth=0];
-    
-    deg_U02 [label=<<B><FONT POINT-SIZE="9" COLOR="#334155">Grado: 2</FONT></B>>, fillcolor="#F1F5F9", pos="1.5,4.15!"];
-    deg_U03 [label=<<B><FONT POINT-SIZE="9" COLOR="#334155">Grado: 2</FONT></B>>, fillcolor="#F1F5F9", pos="1.5,1.15!"];
-    deg_U01 [label=<<B><FONT POINT-SIZE="9" COLOR="#1E40AF">Grado: 3 (Máx ≥ 3)</FONT></B>>, fillcolor="#DBEAFE", pos="4.0,2.65!"];
-    deg_U04 [label=<<B><FONT POINT-SIZE="9" COLOR="#334155">Grado: 2</FONT></B>>, fillcolor="#F1F5F9", pos="6.5,2.65!"];
-    deg_U05 [label=<<B><FONT POINT-SIZE="9" COLOR="#334155">Grado: 1</FONT></B>>, fillcolor="#F1F5F9", pos="8.6,4.05!"];
-    deg_U06 [label=<<B><FONT POINT-SIZE="9" COLOR="#991B1B">Grado: 0 (Aislado)</FONT></B>>, fillcolor="#FEE2E2", pos="8.6,0.95!"];
+    %% Columna 2: Mateo (Centro)
+    subgraph Col2[" "]
+        direction TB
+        U01(("<b>Mateo</b><br/>(U01)"))
+        G01(["Grado: 3 (Máx ≥ 3)"])
+        U01 ~~~ G01
+    end
 
-    // Etiquetas de las 5 Aristas (e1 - e5) en cajitas con borde
-    node [shape=box, style="rounded,filled", fillcolor="#F8FAFC", color="#CBD5E1", penwidth=1.2, margin="0.06,0.03"];
-    
-    lbl_e1 [label=<<B><FONT POINT-SIZE="10" COLOR="#0F172A">e1</FONT></B>>, pos="2.85,4.65!"];
-    lbl_e2 [label=<<B><FONT POINT-SIZE="10" COLOR="#0F172A">e2</FONT></B>>, pos="2.85,2.55!"];
-    lbl_e3 [label=<<B><FONT POINT-SIZE="10" COLOR="#0F172A">e3</FONT></B>>, pos="1.10,3.60!"];
-    lbl_e4 [label=<<B><FONT POINT-SIZE="10" COLOR="#0F172A">e4</FONT></B>>, pos="5.25,3.92!"];
-    lbl_e5 [label=<<B><FONT POINT-SIZE="10" COLOR="#0F172A">e5</FONT></B>>, pos="7.45,4.55!"];
+    %% Columna 3: Valeria (Centro-Derecha)
+    subgraph Col3[" "]
+        direction TB
+        U04(("<b>Valeria</b><br/>(U04)"))
+        G04(["Grado: 2"])
+        U04 ~~~ G04
+    end
 
-    // Etiqueta central del Ciclo C3
-    ciclo [shape=box, style="rounded,filled,dashed", fillcolor="#EFF6FF", color="#93C5FD", penwidth=1.5, margin="0.1,0.06",
-           label=<<B><FONT POINT-SIZE="9.5" COLOR="#1D4ED8">Ciclo C3<BR/>(U01-U02-U03-U01)</FONT></B>>, pos="2.45,3.60!"];
+    %% Columna 4: Sebastián (Arriba) y Camila (Abajo Aislada)
+    subgraph Col4[" "]
+        direction TB
+        U05(("<b>Sebastián</b><br/>(U05)"))
+        G05(["Grado: 1"])
+        U06(("<b>Camila</b><br/>(U06)"))
+        G06(["Grado: 0 (Aislado)"])
+        
+        U05 ~~~ G05
+        G05 ~~~ U06
+        U06 ~~~ G06
+    end
 
-    // Pie de página
-    pie [shape=plaintext, style="", label=<
-        <I><FONT POINT-SIZE="11" COLOR="#475569">Propiedades: Grafo Simple, No Dirigido y No Ponderado | Suma de Grados = 10 (2 × 5 aristas)</FONT></I>
-    >, pos="5.0,0.25!"];
+    %% Aristas principales
+    U02 ---|"<b>e1</b>"| U01
+    U03 ---|"<b>e2</b>"| U01
+    U02 ~~~ C3
+    U03 ~~~ C3
+    C3 ~~~ U01
+    U01 ---|"<b>e4</b>"| U04
+    U04 ---|"<b>e5</b>"| U05
+    U04 ~~~ U06
 
-    // 5 Aristas conectando los vértices
-    U01 -- U02;
-    U01 -- U03;
-    U02 -- U03;
-    U01 -- U04;
-    U04 -- U05;
-}
+    %% Ocultar bordes de las columnas guía
+    style Col1 fill:none,stroke:none
+    style Col2 fill:none,stroke:none
+    style Col3 fill:none,stroke:none
+    style Col4 fill:none,stroke:none
+
+    %% Estilos de los 6 Vértices (Círculos idénticos a la imagen)
+    style U01 fill:#1E3A8A,stroke:#3B82F6,stroke-width:4px,color:#FFFFFF
+    style U02 fill:#0F766E,stroke:#14B8A6,stroke-width:4px,color:#FFFFFF
+    style U03 fill:#0F766E,stroke:#14B8A6,stroke-width:4px,color:#FFFFFF
+    style U04 fill:#0F766E,stroke:#14B8A6,stroke-width:4px,color:#FFFFFF
+    style U05 fill:#334155,stroke:#64748B,stroke-width:4px,color:#FFFFFF
+    style U06 fill:#991B1B,stroke:#EF4444,stroke-width:4px,color:#FFFFFF
+
+    %% Estilos de las placas de Grado y del Ciclo C3
+    style G01 fill:#DBEAFE,stroke:none,color:#1E40AF,font-size:11px
+    style G02 fill:#F1F5F9,stroke:none,color:#334155,font-size:11px
+    style G03 fill:#F1F5F9,stroke:none,color:#334155,font-size:11px
+    style G04 fill:#F1F5F9,stroke:none,color:#334155,font-size:11px
+    style G05 fill:#F1F5F9,stroke:none,color:#334155,font-size:11px
+    style G06 fill:#FEE2E2,stroke:none,color:#991B1B,font-size:11px
+    style C3 fill:#EFF6FF,stroke:#93C5FD,stroke-width:2px,stroke-dasharray: 4 4,color:#1D4ED8,font-size:11px
+```
 
     style U06 fill:#991B1B,stroke:#EF4444,stroke-width:3px,color:#FFFFFF
