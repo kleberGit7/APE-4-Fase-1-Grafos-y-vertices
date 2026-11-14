@@ -48,88 +48,26 @@ $E = \{e_1, e_2, e_3, e_4, e_5\}$
 ---
 
 ## 📊 Representación Visual del Grafo
-## 📊 Representación Visual del Grafo
-
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#F8FAFC', 'lineColor': '#334155', 'fontFamily': 'Segoe UI, sans-serif'}}}%%
 flowchart LR
-    %% Columna 1: Sofía y Lucas (Vertical)
-    subgraph Col1[" "]
-        direction TB
-        U02(("<b>Sofía</b><br/>(U02)"))
-        G02(["Grado: 2"])
-        U03(("<b>Lucas</b><br/>(U03)"))
-        G03(["Grado: 2"])
-        
-        U02 ~~~ G02
-        U02 ---|"<b>e3</b>"| U03
-        U03 ~~~ G03
-    end
+    U02(("Sofía<br/>(U02)<br/>Grado: 2"))
+    U03(("Lucas<br/>(U03)<br/>Grado: 2"))
+    U01(("Mateo<br/>(U01)<br/>Grado: 3"))
+    U04(("Valeria<br/>(U04)<br/>Grado: 2"))
+    U05(("Sebastián<br/>(U05)<br/>Grado: 1"))
+    U06(("Camila<br/>(U06)<br/>Grado: 0"))
 
-    %% Etiqueta del Ciclo C3 en medio del triángulo
-    C3(["Ciclo C3<br/>(U01-U02-U03-U01)"])
+    U02 ---|"e1"| U01
+    U03 ---|"e2"| U01
+    U02 ---|"e3"| U03
+    U01 ---|"e4"| U04
+    U04 ---|"e5"| U05
 
-    %% Columna 2: Mateo (Centro)
-    subgraph Col2[" "]
-        direction TB
-        U01(("<b>Mateo</b><br/>(U01)"))
-        G01(["Grado: 3 (Máx ≥ 3)"])
-        U01 ~~~ G01
-    end
-
-    %% Columna 3: Valeria (Centro-Derecha)
-    subgraph Col3[" "]
-        direction TB
-        U04(("<b>Valeria</b><br/>(U04)"))
-        G04(["Grado: 2"])
-        U04 ~~~ G04
-    end
-
-    %% Columna 4: Sebastián (Arriba) y Camila (Abajo Aislada)
-    subgraph Col4[" "]
-        direction TB
-        U05(("<b>Sebastián</b><br/>(U05)"))
-        G05(["Grado: 1"])
-        U06(("<b>Camila</b><br/>(U06)"))
-        G06(["Grado: 0 (Aislado)"])
-        
-        U05 ~~~ G05
-        G05 ~~~ U06
-        U06 ~~~ G06
-    end
-
-    %% Aristas principales
-    U02 ---|"<b>e1</b>"| U01
-    U03 ---|"<b>e2</b>"| U01
-    U02 ~~~ C3
-    U03 ~~~ C3
-    C3 ~~~ U01
-    U01 ---|"<b>e4</b>"| U04
-    U04 ---|"<b>e5</b>"| U05
-    U04 ~~~ U06
-
-    %% Ocultar bordes de las columnas guía
-    style Col1 fill:none,stroke:none
-    style Col2 fill:none,stroke:none
-    style Col3 fill:none,stroke:none
-    style Col4 fill:none,stroke:none
-
-    %% Estilos de los 6 Vértices (Círculos idénticos a la imagen)
-    style U01 fill:#1E3A8A,stroke:#3B82F6,stroke-width:4px,color:#FFFFFF
-    style U02 fill:#0F766E,stroke:#14B8A6,stroke-width:4px,color:#FFFFFF
-    style U03 fill:#0F766E,stroke:#14B8A6,stroke-width:4px,color:#FFFFFF
-    style U04 fill:#0F766E,stroke:#14B8A6,stroke-width:4px,color:#FFFFFF
-    style U05 fill:#334155,stroke:#64748B,stroke-width:4px,color:#FFFFFF
-    style U06 fill:#991B1B,stroke:#EF4444,stroke-width:4px,color:#FFFFFF
-
-    %% Estilos de las placas de Grado y del Ciclo C3
-    style G01 fill:#DBEAFE,stroke:none,color:#1E40AF,font-size:11px
-    style G02 fill:#F1F5F9,stroke:none,color:#334155,font-size:11px
-    style G03 fill:#F1F5F9,stroke:none,color:#334155,font-size:11px
-    style G04 fill:#F1F5F9,stroke:none,color:#334155,font-size:11px
-    style G05 fill:#F1F5F9,stroke:none,color:#334155,font-size:11px
-    style G06 fill:#FEE2E2,stroke:none,color:#991B1B,font-size:11px
-    style C3 fill:#EFF6FF,stroke:#93C5FD,stroke-width:2px,stroke-dasharray: 4 4,color:#1D4ED8,font-size:11px
-```
+    style U01 fill:#1E3A8A,stroke:#3B82F6,stroke-width:3px,color:#FFFFFF
+    style U02 fill:#0F766E,stroke:#14B8A6,stroke-width:3px,color:#FFFFFF
+    style U03 fill:#0F766E,stroke:#14B8A6,stroke-width:3px,color:#FFFFFF
+    style U04 fill:#0F766E,stroke:#14B8A6,stroke-width:3px,color:#FFFFFF
+    style U05 fill:#334155,stroke:#64748B,stroke-width:3px,color:#FFFFFF
+    style U06 fill:#991B1B,stroke:#EF4444,stroke-width:3px,color:#FFFFFF
 
     style U06 fill:#991B1B,stroke:#EF4444,stroke-width:3px,color:#FFFFFF
